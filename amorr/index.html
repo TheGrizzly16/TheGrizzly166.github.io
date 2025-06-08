@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi amor Sthepany ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: radial-gradient(circle at 20% 80%, #ff1744 0%, #f8bbd9 15%, #ff6b9d 35%, #c44569 60%, #d63031 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hearts" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" font-size="12" fill="%23ffffff" opacity="0.1" text-anchor="middle">♥</text></pattern></defs><rect width="100" height="100" fill="url(%23hearts)"/></svg>');
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .floating-particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .heart-particle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+        }
+
+        .rose-particle {
+            color: rgba(255, 182, 193, 0.7);
+            font-size: 18px;
+        }
+
+        .star-particle {
+            color: rgba(255, 215, 0, 0.6);
+            font-size: 14px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0); opacity: 0; }
+            10% { opacity: 1; transform: translateY(90vh) rotate(45deg) scale(1); }
+            90% { opacity: 1; transform: translateY(10vh) rotate(315deg) scale(1); }
+            100% { transform: translateY(-10vh) rotate(360deg) scale(0); opacity: 0; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 50px 30px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 182, 193, 0.3) 100%);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(199, 69, 105, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            background: linear-gradient(45deg, #ffffff, #ffb6c1, #ff69b4, #dc143c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 8px rgba(220, 20, 60, 0.5);
+            margin-bottom: 15px;
+            animation: heartbeat 2s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: #fff;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 182, 193, 0.15) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 35px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(199, 69, 105, 0.2);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(199, 69, 105, 0.4);
+            border-color: rgba(255, 105, 180, 0.5);
+        }
+
+        .card h2 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card p {
+            color: #fff;
+            line-height: 1.8;
+            text-align: justify;
+            font-size: 1.1em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .love-poem {
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.3) 0%, rgba(255, 105, 180, 0.2) 100%);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(220, 20, 60, 0.3);
+            position: relative;
+        }
+
+        .poem-text {
+            font-size: 1.3em;
+            color: #fff;
+            line-height: 2;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        .secret-messages {
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.25) 0%, rgba(220, 20, 60, 0.2) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 35px;
+            margin: 40px 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(255, 20, 147, 0.3);
+        }
+
+        .secret-input {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .secret-input input {
+            flex: 1;
+            min-width: 250px;
+            padding: 18px 25px;
+            border: none;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            font-size: 16px;
+            box-shadow: inset 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .secret-input input:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            transform: scale(1.02);
+        }
+
+        .secret-input button {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #ff1744, #ff6b9d, #dc143c);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 23, 68, 0.4);
+        }
+
+        .secret-input button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(255, 23, 68, 0.6);
+        }
+
+        .messages-container {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .message {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 182, 193, 0.8) 100%);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            animation: messageSlide 0.6s ease;
+            border-left: 4px solid #ff1744;
+        }
+
+        @keyframes messageSlide {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .message-author {
+            font-weight: bold;
+            color: #dc143c;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .message-time {
+            font-size: 0.9em;
+            color: #666;
+            float: right;
+            font-style: italic;
+        }
+
+        .message-text {
+            color: #333;
+            line-height: 1.6;
+            clear: both;
+        }
+
+        .love-quotes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .quote-card {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 20, 147, 0.2) 100%);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+        }
+
+        .quote-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 20, 147, 0.4);
+        }
+
+        .quote-text {
+            font-size: 1.2em;
+            color: #fff;
+            font-style: italic;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.3) 0%, rgba(255, 105, 180, 0.2) 100%);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-style: italic;
+            font-size: 1.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(220, 20, 60, 0.3);
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+            50% { opacity: 0.7; transform: scale(1.3) rotate(180deg); }
+        }
+
+        .floating-rose {
+            position: absolute;
+            font-size: 2em;
+            color: rgba(255, 182, 193, 0.6);
+            animation: floatRose 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes floatRose {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .love-declaration {
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.4) 0%, rgba(220, 20, 60, 0.3) 100%);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            padding: 45px;
+            margin: 40px 0;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(255, 20, 147, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .declaration-text {
+            font-size: 1.4em;
+            color: #fff;
+            line-height: 1.8;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .secret-input {
+                flex-direction: column;
+            }
+            .secret-input input {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-particles" id="floating-particles"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Para mi princesa Sthepany <span class="sparkle">💖</span></h1>
+            <p class="subtitle">El amor de mi vida - Con todo mi corazón, Andy ❤️</p>
+            <div class="floating-rose" style="top: 20px; right: 30px;">🌹</div>
+            <div class="floating-rose" style="bottom: 20px; left: 30px; animation-delay: 2s;">🌹</div>
+        </div>
+
+        <div class="love-declaration">
+            <div class="declaration-text">
+                <strong>Mi amor eterno,</strong><br>
+                Cada día que pasa me enamoro más de ti. Eres mi sol en los días grises, 
+                mi refugio en las tormentas y mi mayor felicidad. Tu sonrisa ilumina mi mundo 
+                y tu amor me hace ser la mejor versión de mí mismo. 
+                <br><br>
+                <em>Eres y serás siempre el amor de mi vida. 💕</em>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="card">
+                <h2>Life is beautiful</h2>
+                <p>Tú mi princesa, quiero pasar toda mi vida junto a ti mirar el brillo de tus ojos al despertar y parecer que estoy en un cuento pues conmigo no te faltará nada pues yo sé que fue para ti quien yo nací que te entregaría todo desde mi cuerpo hasta mi sangre y bebé por ti bajaría la luna porque esto que siento es real y contigo la vida es hermosa.</p>
+            </div>
+
+            <div class="card">
+                <h2>🌹 Toda mi Vida Amandote</h2>
+                <p>Quiero pasar toda mi vida amándote sin mirar atrás pues no quiero ver mi vida cuándo tú no estabas y ahora siempre quiero estar atado a ti pues cuando no estoy pensando en ti es porque te estoy soñando y yo sé que soy para ti.</p>
+            </div>
+
+            <div class="card">
+                <h2>✨ Te Amo</h2>
+                <p>Rodeado de estrellas hay una que deslumbra en el fondo de mi corazón eres la que más alumbra cuando estoy contigo siento que tengo el mundo en mi bolsillo y yo simplemente quiero regalartelo pero no hay forma de explicar lo que me haces sentir, pues no siento miedo al entregarme totalmente a ti quiero decirte que te amo a cada segundo del día lo repito muchas veces más no se acerca a lo que siento dentro de mi por ti.</p>
+            </div>
+
+            <div class="card">
+                <h2>💫 Mi Promesa</h2>
+                <p>Te prometo amarte con la misma intensidad todos los días de mi vida. Prometo ser tu apoyo incondicional, tu mejor amigo, tu confidente y tu compañero de aventuras. Prometo cuidar tu corazón como el tesoro más preciado y hacer todo lo posible para verte sonreír cada día. Mi amor por ti es infinito y eterno.</p>
+            </div>
+        </div>
+
+        <div class="love-poem">
+            <h2 style="color: #fff; margin-bottom: 30px; font-size: 2.2em;">💕 Poema para Ti</h2>
+            <div class="poem-text">
+                "En el jardín de mi corazón floreces tú,<br>
+                Rosa más bella que la aurora al amanecer,<br>
+                Tu amor es luz que mi alma abraza,<br>
+                Y en tus ojos encuentro mi renacer.<br><br>
+                
+                Sthepany, nombre que susurro al viento,<br>
+                Melodía dulce que mi ser entona,<br>
+                Eres mi verso más perfecto,<br>
+                La musa que mi corazón corona."
+            </div>
+            <p style="color: #fff; font-size: 1.1em; margin-top: 20px;"><em>Escrito con amor para ti - Andy 💖</em></p>
+        </div>
+
+        <div class="love-quotes">
+            <div class="quote-card">
+                <div class="quote-text">"Eres mi lugar favorito en todo el universo"</div>
+                <div style="color: #ffb6c1;">💕 Para Sthepany</div>
+            </div>
+            
+            <div class="quote-card">
+                <div class="quote-text">"Contigo, cada momento es mágico"</div>
+                <div style="color: #ffb6c1;">✨ Mi amor eterno</div>
+            </div>
+            
+            <div class="quote-card">
+                <div class="quote-text">"Tu sonrisa es mi razón de ser feliz"</div>
+                <div style="color: #ffb6c1;">😊 Andy para ti</div>
+            </div>
+        </div>
+
+        <div class="secret-messages">
+            <h2 style="color: #fff; text-align: center; margin-bottom: 25px; font-size: 2.2em;">💌 Nuestros Mensajes de Amor</h2>
+            <p style="color: #fff; text-align: center; margin-bottom: 25px; font-size: 1.2em;">
+                Este es nuestro espacio especial donde podemos escribirnos los mensajes más bonitos y románticos
+            </p>
+            
+            <div class="secret-input">
+                <input type="text" id="message-input" placeholder="Escribe aquí tu mensaje de amor más dulce..." maxlength="300">
+                <button onclick="addMessage()">Enviar con Amor 💕</button>
+            </div>
+            
+            <div class="messages-container" id="messages-container">
+                <div class="message">
+                    <div class="message-author">Andy 💕</div>
+                    <div class="message-time">Siempre</div>
+                    <div class="message-text">Mi amor hermoso, esta página es solo para nosotros. Aquí podemos escribirnos todo lo que sentimos, nuestros pensamientos más dulces y nuestras promesas de amor. Te amo con todo mi corazón, Sthepany ❤️✨</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💖 Creado con infinito amor por Andy para su princesa Sthepany 💖</p>
+            <p>🌹 Te amo más que a mi propia vida 🌹</p>
+            <p><span class="sparkle">✨</span> Nuestro amor es eterno <span class="sparkle">✨</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Partículas flotantes mejoradas
+        const particles = ['❤️', '💖', '💕', '🌹', '✨', '💫', '🌸', '💗'];
+        const particleClasses = ['heart-particle', 'rose-particle', 'star-particle'];
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            const randomParticle = particles[Math.floor(Math.random() * particles.length)];
+            const randomClass = particleClasses[Math.floor(Math.random() * particleClasses.length)];
+            
+            particle.className = `particle ${randomClass}`;
+            particle.innerHTML = randomParticle;
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            
+            document.getElementById('floating-particles').appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 10000);
+        }
+
+        setInterval(createParticle, 1500);
+
+        // Sistema de mensajes mejorado
+        let messages = [
+            {
+                author: 'Andy 💕',
+                text: 'Mi amor hermoso, esta página es solo para nosotros. Aquí podemos escribirnos todo lo que sentimos, nuestros pensamientos más dulces y nuestras promesas de amor. Te amo con todo mi corazón, Sthepany ❤️✨',
+                time: 'Siempre'
+            }
+        ];
+
+        let isAndyTurn = false; // Para alternar entre Andy y Sthepany
+
+        function addMessage() {
+            const input = document.getElementById('message-input');
+            const text = input.value.trim();
+            
+            if (text) {
+                const author = isAndyTurn ? 'Andy 💕' : 'Sthepany 💖';
+                isAndyTurn = !isAndyTurn;
+                
+                messages.push({
+                    author: author,
+                    text: text,
+                    time: new Date().toLocaleTimeString('es-ES', {
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    })
+                });
+                
+                input.value = '';
+                displayMessages();
+                
+                // Efecto de corazones al enviar mensaje
+                createHeartBurst();
+            }
+        }
+
+        function displayMessages() {
+            const container = document.getElementById('messages-container');
+            container.innerHTML = '';
+            
+            messages.forEach(msg => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message';
+                messageDiv.innerHTML = `
+                    <div class="message-author">${msg.author}</div>
+                    <div class="message-time">${msg.time}</div>
+                    <div class="message-text">${msg.text}</div>
+                `;
+                container.appendChild(messageDiv);
+            });
+            
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function createHeartBurst() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '💖';
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * window.innerWidth + 'px';
+                    heart.style.top = '50%';
+                    heart.style.fontSize = '2em';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '1000';
+                    heart.style.animation = 'heartBurst 2s ease-out forwards';
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 2000);
+                }, i * 100);
+            }
+        }
+
+        // Añadir CSS para la animación de explosión de corazones
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes heartBurst {
+                0% { 
+                    opacity: 1; 
+                    transform: translateY(0) scale(0); 
+                }
+                50% { 
+                    opacity: 1; 
+                    transform: translateY(-100px) scale(1.5); 
+                }
+                100% { 
+                    opacity: 0; 
+                    transform: translateY(-200px) scale(0); 
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Permitir enviar mensaje con Enter
+        document.getElementById('message-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addMessage();
+            }
+        });
+
+        // Inicializar mensajes
+        displayMessages();
+
+        // Efecto de brillo en las tarjetas
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.3) 0%, rgba(255, 182, 193, 0.15) 50%, rgba(255, 255, 255, 0.1) 100%)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 182, 193, 0.15) 100%)';
+            });
+        });
+    </script>
+</body>
+</html>
